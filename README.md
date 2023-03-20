@@ -15,6 +15,8 @@ have been provided with a JAR file
 
 ### Build batch file
 
-## Object Oriented Concepts
+## Interface implementation
+
+## Object-oriented Concepts
 
 ## Binary IO
