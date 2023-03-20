@@ -19,6 +19,8 @@ public class EncryptedMessage extends Message implements  IValidation{
         this.Key = Key;
     }
 
+    public String getKey(){return this.Key; }
+
     //Implementing Validation Interface
     @Override
     public boolean validate() {
