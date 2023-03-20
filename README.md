@@ -4,7 +4,7 @@
 
 ## Additional Information
 
-This practical adds on to the [previous practical (Prac02)](https://github.com/ThaBeanBoy/UJ_CSC2A_P02). This time we 
+This practical adds on to the [previous practical (Prac03)](https://github.com/ThaBeanBoy/UJ_CSC2A_P03). This time we 
 have been provided with a JAR file
 
 ## UML
@@ -15,3 +15,6 @@ have been provided with a JAR file
 
 ### Build batch file
 
+## Object Oriented Concepts
+
+## Binary IO
