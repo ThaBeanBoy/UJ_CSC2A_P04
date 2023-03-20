@@ -5,7 +5,7 @@ import acsse.csc2a.model.Message;
 import acsse.csc2a.model.RECIPIENT_TYPE;
 
 public class EncryptedMessage extends Message implements  IValidation{
-    public String Key;
+    private String Key;
     public EncryptedMessage(
             String iD,
             String contents,
