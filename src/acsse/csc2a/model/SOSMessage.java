@@ -19,6 +19,8 @@ public class SOSMessage extends Message implements IValidation {
         this.Recipient = Recipient;
     }
 
+    public final RECIPIENT_TYPE getRecipient(){ return this.Recipient; }
+
     //Implementing Validation Interface
     @Override
     public boolean validate() {

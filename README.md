@@ -111,3 +111,5 @@ I think Object IO falls out the scope of this practical.
 Just like in the [last practical](https://github.com/ThaBeanBoy/UJ_CSC2A_P03), we can use ARM to read & write Binary files.
 
 ### Reading Ship from Binary file
+
+## Cool things
