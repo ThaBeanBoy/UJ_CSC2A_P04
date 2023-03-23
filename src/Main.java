@@ -10,6 +10,13 @@ public class Main {
         try{
             Employee EMP_220150124 = new Employee("220150124", "TG", "Chipoyera", ShipInDat);
             System.out.println(EMP_220150124.printMessages());
+
+            //Validating messages
+            if(EMP_220150124.sendMessages()){
+                System.out.println("All messages are valid");
+            }else{
+                System.out.println("There are invalid messages");
+            }
         }catch(Employee.dummy e){
             System.out.println("The Employee ID length should be greater than or equals to 6");
         }

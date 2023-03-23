@@ -7,9 +7,9 @@ import acsse.csc2a.model.EncryptedMessage;
 import acsse.csc2a.model.NormalMessage;
 
 public class Employee implements IValidation{
-    private String EmployeeID;
-    private String FirstName;
-    private String LastName;
+    private final String EmployeeID;
+    private final String FirstName;
+    private final String LastName;
     private Ship ShipData;
 
     public Employee(String EmployeeID, String FirstName, String LastName, Ship Ship) throws dummy{
@@ -22,7 +22,7 @@ public class Employee implements IValidation{
         this.ShipData = Ship;
     }
 
-    public String printMessages(){
+    public final String printMessages(){
         StringBuilder finalPrint = new StringBuilder();
 
         finalPrint.append(String.format("%s %s Messages \n\n", this.getEmployeeID(), this.getLastName()));
@@ -62,6 +62,17 @@ public class Employee implements IValidation{
         }
 
         return finalPrint.toString();
+    }
+
+    public boolean sendMessages(){
+        for(Message MSG : this.ShipData.getMessages()) {
+            if (MSG.validate())
+                continue;
+            else
+                return false;
+        }
+
+        return true;
     }
 
     public final String getEmployeeID(){return this.EmployeeID; }
