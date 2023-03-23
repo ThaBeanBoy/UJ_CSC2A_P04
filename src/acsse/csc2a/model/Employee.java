@@ -6,14 +6,28 @@ import acsse.csc2a.model.SOSMessage;
 import acsse.csc2a.model.EncryptedMessage;
 import acsse.csc2a.model.NormalMessage;
 
+/**
+ * Employee class, contains details about the employee and has a Ship class
+ * @author TG Chipoyera
+ * @version P04
+ * @see Ship,SOSMessage,EncryptedMessage,NormalMessage,IValidation
+ */
 public class Employee implements IValidation{
     private final String EmployeeID;
     private final String FirstName;
     private final String LastName;
     private Ship ShipData;
 
+    /**
+     * Creates an instance of Employee class
+     * @param EmployeeID The ID of the employee, the length can't be less than 6 characters
+     * @param FirstName The first name of the employee
+     * @param LastName The last name of the employee
+     * @param Ship A ship objecgt
+     * @throws dummy Exception is thrown if the length of the EmployeeID is less than 6
+     */
     public Employee(String EmployeeID, String FirstName, String LastName, Ship Ship) throws dummy{
-        if(EmployeeID.length() <= 6)
+        if(EmployeeID.length() < 6)
             throw new dummy();
 
         this.EmployeeID = EmployeeID;
@@ -22,6 +36,10 @@ public class Employee implements IValidation{
         this.ShipData = Ship;
     }
 
+    /**
+     * The string contains details about the employee and all the messages in the Ship
+     * @return String
+     */
     public final String printMessages(){
         StringBuilder finalPrint = new StringBuilder();
 
@@ -64,6 +82,10 @@ public class Employee implements IValidation{
         return finalPrint.toString();
     }
 
+    /**
+     * Checks & validates each message in the Ship.
+     * @return boolean
+     */
     public boolean sendMessages(){
         for(Message MSG : this.ShipData.getMessages()) {
             if (MSG.validate())
@@ -75,12 +97,36 @@ public class Employee implements IValidation{
         return true;
     }
 
+    /**
+     * The employee's ID
+     * @return String
+     */
     public final String getEmployeeID(){return this.EmployeeID; }
+
+    /**
+     * Returns the first name of the employee
+     * @return String
+     */
     public final String getFirstName(){return this.FirstName;}
+
+    /**
+     * Returns the last name of the employee
+     * @return String
+     */
     public final String getLastName(){return this.LastName;}
+
+    /**
+     * Returns the ship that the employee composes of
+     * @return Ship
+     */
     public final Ship getShipData(){return this.ShipData;}
 
     //Implementing Validation Interface
+
+    /**
+     * Validates the employee
+     * @return boolean
+     */
     @Override
     public boolean validate() {
         return this.EmployeeID.length() >= 6;
