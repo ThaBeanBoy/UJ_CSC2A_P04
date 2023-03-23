@@ -73,7 +73,7 @@ as bytes. This makes Binary IO more efficient.
 
 #### Filtered IO Classes
 
-! [Binary IO Classes](./docs/Binary_IO_Classes.png)
+![Binary IO Classes](./docs/Binary_IO_Classes.png)
 
 When working with Binary files, it's recommended to use buffered streams [(```BufferedInputStream```/ ```BufferedOutputStream```)]().
 Reason being is that  buffer streams are stored RAM instead of Memory, therefore working with buffer is faster than
