@@ -24,9 +24,19 @@ import acsse.csc2a.model.PLANET_TYPE;
 import acsse.csc2a.model.LANGUAGE_TYPE;
 import acsse.csc2a.model.RECIPIENT_TYPE;
 
-import javax.xml.crypto.Data;
-
+/**
+ * A class that contains static method that reads binary files.
+ * @author TG Chipoyera
+ * @version P04
+ */
 public class DataReader {
+    /**
+     * Takes in binary file paths & returns a ship that contains messages,
+     * @param shipFilePath - The filepath to the binary file that contains the ship
+     * @param MessagesFilePath - The filepath to the binary file that contains messages
+     * @return Ship
+     * @see Ship,SOSMessage,EncryptedMessage,NormalMessage,Message
+     */
     public static Ship readShip(String shipFilePath, String MessagesFilePath){
         Ship Ship;
         String ShipID = "";
