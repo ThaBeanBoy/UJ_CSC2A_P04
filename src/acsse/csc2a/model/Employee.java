@@ -12,13 +12,14 @@ public class Employee implements IValidation{
     private String LastName;
     private Ship ShipData;
 
-    public Employee(String EmployeeID, String FirstName, String LastName, Ship Ship) throws Exception{
-        if(EmployeeID.length() >= 6)
-            throw new Exception();
+    public Employee(String EmployeeID, String FirstName, String LastName, Ship Ship) throws dummy{
+        if(EmployeeID.length() <= 6)
+            throw new dummy();
 
         this.EmployeeID = EmployeeID;
         this.FirstName = FirstName;
         this.LastName = LastName;
+        this.ShipData = Ship;
     }
 
     public String printMessages(){
@@ -31,6 +32,7 @@ public class Employee implements IValidation{
             finalPrint.append(String.format("""
                             ID: %s | %s -> %s | %s
                             Message Type:  %s | %s
+                            
                             """,
                     // Message properties
                     Message.getID(),
@@ -72,4 +74,6 @@ public class Employee implements IValidation{
     public boolean validate() {
         return this.EmployeeID.length() >= 6;
     }
+
+    public static class dummy extends Exception {}
 }
