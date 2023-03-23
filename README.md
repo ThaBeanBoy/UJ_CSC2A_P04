@@ -63,6 +63,24 @@ obviously we had to ```extend``` the Message in order to inherit, but there was 
 the EncryptedMessage constructor would throw an Err exception. If the key length was less than 10 characters, an exception
 would be thrown. But the IDE was complaining and said that the bas class' constructor should be called first.
 
+### Polymorphism
+
+```
+Message[] Messages = new Message[0];
+
+Messages = appendArray(Messages, switch (MessageType){
+                        case "SOSMessage" -> new SOSMessage(
+                                Message_ID,
+                                Content,
+                                DataReader.StringToPlanet(SourcePlent),
+                                DataReader.StringToPlanet(DestinationPalent),
+                                DataReader.StringToMessageType(MessageType),
+                                DataReader.StringToRecipient(AdditionalProperty)
+                                );
+                        
+                    });
+```
+
 ## Binary IO
 
 ### Short description
