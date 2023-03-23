@@ -14,6 +14,8 @@ import acsse.csc2a.model.Ship;
 import acsse.csc2a.model.Message;
 
 public class DataReader {
+    private static DataInputStream StreamDataStream;
+
     public static Ship readShip(String shipFilePath, String MessagesFilePath){
         String ShipID = "";
         StringBuilder ShipName = new StringBuilder();
@@ -23,13 +25,13 @@ public class DataReader {
             InputStream ShipStream = new FileInputStream(shipFilePath);
             InputStream MessagesStream = new FileInputStream(MessagesFilePath);
         ){
-            DataInputStream ShipBufferStream = new DataInputStream(ShipStream);
-            DataInputStream MessagesInputStream = new DataInputStream(MessagesStream);
+            DataInputStream ShipDataStream = new DataInputStream(ShipStream);
+            DataInputStream messagesDataStream = new DataInputStream(MessagesStream);
 
             // Reading Ship Details
-            ShipID = ShipBufferStream.readUTF();
+            ShipID = ShipDataStream.readUTF();
             while(true){ //The file itself has an end, so it's fine to make a while loop that has true inside it
-                ShipName.append(String.format(" %s", ShipBufferStream.readUTF()));
+                ShipName.append(String.format(" %s", ShipDataStream.readUTF()));
             }
         }catch (EOFException e){
             return new Ship(ShipID, ShipName.toString());
