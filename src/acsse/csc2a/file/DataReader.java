@@ -97,8 +97,7 @@ public class DataReader {
                                 Content,
                                 SourcePlent,
                                 DestinationPalent,
-                                MessageType,
-                                Content.length()
+                                MessageType
                         );
                     };
 
