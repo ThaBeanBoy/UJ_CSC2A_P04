@@ -2,6 +2,24 @@
 
 ## Table Of Content
 
+- [Additional Information](#additional-information)
+- [UML](#uml)
+- [The JAR file](#the-jar-file)
+    * [Contents of JAR File](#contents-of-jar-file)
+    * [IntelliJ](#intellij)
+    * [Build batch file](#build-batch-file)
+- [Object-oriented Concepts & Interface implementation](#object-oriented-concepts---interface-implementation)
+    * [Inheritance](#inheritance)
+    * [Polymorphism](#polymorphism)
+- [Binary IO](#binary-io)
+    * [Short description](#short-description)
+        + [Filtered IO Classes](#filtered-io-classes)
+        + [Filtered IO](#filtered-io)
+        + [Object IO](#object-io)
+        + [ARM (Automatic Resource Management)](#arm--automatic-resource-management-)
+    * [Reading Ship from Binary file](#reading-ship-from-binary-file)
+- [Cool things](#cool-things)
+
 ## Additional Information
 
 This practical adds on to the [previous practical (Prac03)](https://github.com/ThaBeanBoy/UJ_CSC2A_P03). This time we 
@@ -206,14 +224,14 @@ as bytes. This makes Binary IO more efficient.
 
 ![Binary IO Classes](./docs/Binary_IO_Classes.png)
 
-When working with Binary files, it's recommended to use buffered streams [(```BufferedInputStream```/ ```BufferedOutputStream```)]().
+When working with Binary files, it's recommended to use buffered streams (```BufferedInputStream```/ ```BufferedOutputStream```).
 Reason being is that  buffer streams are stored RAM instead of Memory, therefore working with buffer is faster than
 trying to access files from disk.
 
 #### Filtered IO
 
 Using Filtered IO, you can extract primitive data types from a file. In order for us to do this, we need a filtered stream
-instance [(```FilterInputStream``` / ```FilterOutputStream```)](#Filtered-IO-Classes),
+instance (```FilterInputStream``` / ```FilterOutputStream```),
 
 #### Object IO
 
