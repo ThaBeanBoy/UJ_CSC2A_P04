@@ -8,6 +8,7 @@ This practical adds on to the [previous practical (Prac03)](https://github.com/T
 have been provided with a JAR file
 
 ## UML
+I made a mistake when making the UML, I was supposed to use the icon for composition, instead I used the aggregation icon.
 
 ![UML](./docs/UML.png)
 
@@ -143,7 +144,11 @@ public class DataReader{
 }
 ```
 
-I also used it for display purposes, more specifically at the enhanced switch statement.
+I also used polymorphism for display purposes. The loop loops through a ```Message``` array, meaning each a Message was 
+a single ```Message``` instance. n the print messages, I wanted to print each message and all it's properties regardless
+of the ```Message_Type``` & print out properties unique to each sub message class. In the switch statement, I would 
+downcast the Message into the appropriate Type, & then extract the information using accessor methods. 
+
 ```java
 public class Employee{
     public String printMessages(){
@@ -164,7 +169,7 @@ public class Employee{
                     Message.getContents(),
                     Message.getMessage_type(),
 
-                    //Child class properties
+                    //Polymorphism
                     switch(Message.getMessage_type()){
                         case SOSMessage -> {
                             SOSMessage SOS = (SOSMessage) Message;
