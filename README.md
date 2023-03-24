@@ -9,20 +9,43 @@ have been provided with a JAR file
 
 ## UML
 
+![UML](./docs/UML.png)
+
 ## The JAR file
+
+### Contents of JAR File
+
+The [JAR File](./lib/MWSCB.jar) contained a few things, I'll mainly go through the classes, enums & interface in the JAR
+file.
+
+- Ship class
+- Message class
+- IValidation interface
+- LANGUAGE_TYPE Interface
+- MESSAGE_TYPE Interface
+- PLANET_TYPE Interface
+- RECIPIENT_TYPE Interface
 
 ### IntelliJ
 
+In order to use the JAR in IntelliJ IDE, I had to add it to the project structure. you can press & hold the keys 
+```ctrl + alt + shift + s```. from there, you can add the JAR file to the project.
+
 ### Build batch file
 
-## Interface implementation
+In the [batch file](./docs/BUILD_&_RUN.bat) provided to us by the lecturer, when it compiles the code, it will automatically
+look for any JAR files in the lib directory.
 
-## Object-oriented Concepts
+## Object-oriented Concepts & Interface implementation
+
+### Inheritance
 One of the main things Our lecturer wanted us to grasp in this project was making a class inherit from a parent class.
 In the [JAR file](./lib/MWSCB.jar) provided to us, a ```Message``` class was provided to us with all the relavent properties
 & methods. I honestly woud've preffered if he let us build upon [last week's practical](https://github.com/ThaBeanBoy/UJ_CSC2A_P03).
 I think this would have given us the opportunity to play around with the ```public```, ```private``` & ```protected```. But
 I guess that's simple to understand anyway.
+
+Each messages class & ```Employee``` class implement the ```IValidation``` interface.
 
 **NB: I'll be demonstrating inheritance using one of the child class (NormalMessage Class)**
 
@@ -65,20 +88,59 @@ would be thrown. But the IDE was complaining and said that the bas class' constr
 
 ### Polymorphism
 
-```
-Message[] Messages = new Message[0];
+Now bear with me here, I know having a fixed length array of 1 seems nonsensical (We could easily declare a variable of 
+type ```Message```). The reason why is because, the ```addMessages``` method from the ```Ship``` object only accepts an 
+array of ```Message```, and in the loop, I wanted to add 1 message at a time.
 
-Messages = appendArray(Messages, switch (MessageType){
-                        case "SOSMessage" -> new SOSMessage(
-                                Message_ID,
-                                Content,
-                                DataReader.StringToPlanet(SourcePlent),
-                                DataReader.StringToPlanet(DestinationPalent),
-                                DataReader.StringToMessageType(MessageType),
-                                DataReader.StringToRecipient(AdditionalProperty)
+Where polymorphism comes into play is where I store different types of messages 
+([```EncryptedMessage```](./src/acsse/csc2a/model/EncryptedMessage.java),
+[```NormalMessage```](./src/acsse/csc2a/model/NormalMessage.java) 
+& [```SOSMessage```](./src/acsse/csc2a/model/SOSMessage.java)). If I'm not mistaken, this is upcasting.
+
+```java
+public class DataReader{
+    // Rest of DataReader Class
+    
+    public static Ship readShip(String shipFilePath, String MessagesFilePath){
+        // Automatic Resource Management
+        
+        Message[] Messages = new Message[1];
+        
+        Messages = appendArray(Messages, switch (MessageType){
+                                case SOSMessage -> new SOSMessage(
+                                        Message_ID,
+                                        Content,
+                                        SourcePlent,
+                                        DestinationPalent,
+                                        MessageType,
+                                        DataReader.StringToRecipient(AdditionalProperty)
+                                        );
+        
+                                case EncryptedMessage -> new EncryptedMessage(
+                                        Message_ID,
+                                        Content,
+                                        SourcePlent,
+                                        DestinationPalent,
+                                        MessageType,
+                                        AdditionalProperty
                                 );
-                        
-                    });
+        
+                                case NormalMessage ->  new NormalMessage(
+                                        Message_ID,
+                                        Content,
+                                        SourcePlent,
+                                        DestinationPalent,
+                                        MessageType
+                                );
+                            });
+
+        //Saving message
+        Ship.addMessages(Messages);
+        
+    }
+    
+    // Rest of DataReader Class
+}
 ```
 
 I also used it for display purposes, more specifically at the enhanced switch statement.
