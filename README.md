@@ -3,6 +3,7 @@
 ## Table Of Content
 
 - [Additional Information](#additional-information)
+- [Marks](#marks)
 - [UML](#uml)
 - [The JAR file](#the-jar-file)
     * [Contents of JAR File](#contents-of-jar-file)
@@ -24,6 +25,10 @@
 
 This practical adds on to the [previous practical (Prac03)](https://github.com/ThaBeanBoy/UJ_CSC2A_P03). This time we 
 have been provided with a JAR file
+
+## Marks
+
+![marks](./docs/Marks.png)
 
 ## UML
 I made a mistake when making the UML, I was supposed to use the icon for composition, instead I used the aggregation icon.
